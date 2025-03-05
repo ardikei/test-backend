@@ -7,7 +7,14 @@ import stylisticJs from '@stylistic/eslint-plugin-js'
 export default [
   { ignores: ['dist,node_modules'] },
   { files: ['**/*.js'], languageOptions: { sourceType: 'commonjs' } },
-  { languageOptions: { globals: globals.node } },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      }
+    },
+  },
   { plugins: { '@stylistic/js': stylisticJs } },
   pluginJs.configs.recommended,
   {

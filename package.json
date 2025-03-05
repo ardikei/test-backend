@@ -9,10 +9,10 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "rm -rf dist && cd ../part1 && npm run build && cp -r dist ../test-backend",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest --verbose"
   },
   "dependencies": {
     "backend": "file:",
@@ -26,6 +26,10 @@
     "@stylistic/eslint-plugin-js": "^4.2.0",
     "eslint": "^9.21.0",
     "globals": "^16.0.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.9"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
